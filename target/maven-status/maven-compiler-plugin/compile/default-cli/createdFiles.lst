@@ -1,0 +1,5 @@
+hut\service\BookServiceImpl.class
+hut\domain\Books.class
+hut\dao\BookMapper.class
+hut\service\BookService.class
+hut\controller\BookController.class

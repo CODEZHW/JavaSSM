@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Config 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="hut.dao.BookMapper">
+    <insert id="addBook" parameterType="hut.domain.Books">
+        insert into books (bookName, bookCount, detail) values (#{bookName},#{bookCount},#{detail});
+    </insert>
+
+    <delete id="deleteBookByID" parameterType="java.lang.Integer" >
+        delete from books where bookID = #{bookID}
+    </delete>
+
+    <update id="updateBook" parameterType="hut.domain.Books">
+        update books set bookName=#{bookName},bookCount = #{bookCount}, detail = #{detail} where bookID = #{bookID};
+    </update>
+
+    <select id="queryBookByID" resultType="hut.domain.Books" parameterType="java.lang.Integer">
+        select * from books where bookID=#{bookID};
+    </select>
+
+    <select id="queryAllBook" resultType="hut.domain.Books">
+        select * from books;
+    </select>
+
+    <select id="queryBookByName" parameterType="java.lang.String" resultType="hut.domain.Books">
+        select * from books where bookName = #{bookName}
+    </select>
+</mapper>
